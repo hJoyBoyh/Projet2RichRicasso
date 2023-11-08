@@ -1,0 +1,5 @@
+RewriteEngine On
+RewriteBase /Projet2RichRicasso/
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.+)$ /Projet2RichRicasso/index.php [QSA,L]

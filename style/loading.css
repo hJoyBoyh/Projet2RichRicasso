@@ -1,0 +1,64 @@
+@font-face {
+    font-family: vaporwave;
+    src: url(font/FoxCavalier-WyzrE.ttf);
+  }
+.pace {
+	-webkit-pointer-events: none;
+	pointer-events: none;
+
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+}
+
+.pace.pace-inactive .pace-progress {
+	display: none;
+}
+
+.pace .pace-progress {
+	position: fixed;
+	z-index: 2000;
+	top: 45%;
+	right: 35%;
+	height: 5rem;
+	width: 5rem;
+	background-color: transparent;
+
+	-webkit-transform: translate3d(0, 0, 0) !important;
+	-ms-transform: translate3d(0, 0, 0) !important;
+	transform: translate3d(0, 0, 0) !important;
+}
+
+.pace .pace-progress:after {
+	display: block;
+	position: absolute;
+	top: 0;
+	right: .5rem;
+	content: attr(data-progress-text);
+	font-family: vaporwave;
+	font-weight: 100;
+	font-size: 10rem;
+	line-height: 1;
+	text-align: right;
+	color: #FF2CB3;
+    -webkit-text-stroke: 2px black;
+}
+.preloader{
+    height:100vh;
+    width:100vw;
+    position:fixed;
+    top: 0;
+    left: 0;
+    z-index: 200;
+    
+    object-fit: cover;
+}
+.preloader>video{
+    height: 100vh;
+    width: 100vw;
+    object-fit: cover;
+    margin: 0;
+    padding: 0;
+   
+}
+
