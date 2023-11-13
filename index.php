@@ -66,25 +66,25 @@ switch ($method | $uri) {
 
     echo json_encode($produits);
     break;
-  case ($method = 'GET' && preg_match('/\/Projet2RichRicasso\/api\/produits\/44/', $uri)):
+  case ($method = 'GET' && preg_match('/\/Projet2RichRicasso\/api\/produits\/quarantequatre/', $uri)):
 
     $produits = $produitController->getProduitByTaille('44');
 
     echo json_encode($produits);
     break;
-  case ($method = 'GET' && preg_match('/\/Projet2RichRicasso\/api\/produits\/48/', $uri)):
+  case ($method = 'GET' && preg_match('/\/Projet2RichRicasso\/api\/produits\/quarantehuit/', $uri)):
 
     $produits = $produitController->getProduitByTaille('48');
 
     echo json_encode($produits);
     break;
-  case ($method = 'GET' && preg_match('/\/Projet2RichRicasso\/api\/produits\/54/', $uri)):
+  case ($method = 'GET' && preg_match('/\/Projet2RichRicasso\/api\/produits\/cinquantequatre/', $uri)):
 
     $produits = $produitController->getProduitByTaille('54');
 
     echo json_encode($produits);
     break;
-  case ($method = 'GET' && preg_match('/\/Projet2RichRicasso\/api\/produits\/56/', $uri)):
+  case ($method = 'GET' && preg_match('/\/Projet2RichRicasso\/api\/produits\/cinquantesix/', $uri)):
 
     $produits = $produitController->getProduitByTaille('56');
 

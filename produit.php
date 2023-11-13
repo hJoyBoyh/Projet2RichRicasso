@@ -28,21 +28,20 @@ if (!isAuthenticated()) {
 </head>
 
 <body>
-    <!--
+    
     <div class="preloader">
         <video muted autoplay loop>
             <source src="./video/FREE Vaporwave Background V2 (5 Minutes).mp4" type="">
         </video>
     </div>
--->
+
 
     <div id="content">
 
-        <!--
+        
         <video muted autoplay loop>
             <source src="video/Moving Gradient Background.mp4" type="">
         </video>
--->
         <nav>
             <div class="logo nav-li">
                 <h1>R</h1>
@@ -64,6 +63,9 @@ if (!isAuthenticated()) {
                     <li class="categorie">Tous</li>
                     <li class="categorie">Cravatte</li>
                     <li class="categorie">Chemise</li>
+                    <li class="categorie">ASC</li>
+                    <li class="categorie">DESC</li>
+
 
                     <div>
                     <label for="couleur-select">Par Couleur</label>
@@ -82,10 +84,10 @@ if (!isAuthenticated()) {
                     <select name="tailles" id="tailles-select">
                         <option value="">--Choisir une option--</option>
                         <option value="unique">Unique</option>
-                        <option value="44">44</option>
-                        <option value="48">48</option>
-                        <option value="54">54</option>
-                        <option value="56">56 </option>
+                        <option value="quarantequatre">44</option>
+                        <option value="quarantehuit">48</option>
+                        <option value="cinquantequatre">54</option>
+                        <option value="cinquantesix">56 </option>
                         
                     </select>
                     </div>

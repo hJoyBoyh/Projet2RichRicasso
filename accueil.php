@@ -25,6 +25,7 @@ session_start();
         </video>
     </div>
     
+    
     <div class="first">
         <div>
             <h1 class="h1-first">Rich Ricasso Collections</h1>
@@ -45,11 +46,11 @@ session_start();
     </div>
     <div id="content">
         <!--background-->
-<!--
+
         <video muted autoplay loop>
             <source src="video/Moving Gradient Background.mp4" type="">
         </video>
--->
+
 
         <?php require "./navTemplate.php" ?>
 
