@@ -60,7 +60,14 @@ session_start();
 
                 <div class="hero-info">
                     <div class="caroussel-content">
-                    <div class="gallery"></div>
+                    <div class="gallery">
+                    <?php
+                    
+                    $url = '/Projet2RichRicasso/api/produits'
+                    ?>
+
+                    </div>
+
                         <script>
                             const gallery = document.querySelector('.gallery');
                             const url = '/Projet2RichRicasso/api/produits';

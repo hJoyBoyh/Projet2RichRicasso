@@ -5,9 +5,10 @@ require_once('controllers/ProduitController.php');
 require_once(dirname(__FILE__) . "/manager/dbManager.php");
 
 
-function isAuthenticated() {
+function isAuthenticated()
+{
   session_start();
-  return isset($_SESSION['authentifie']);// doit être
+  return isset($_SESSION['authentifie']); // doit être
 }
 
 
@@ -40,7 +41,7 @@ switch ($method | $uri) {
     //header("Content-Type: application/json");
     echo json_encode($users);
     break;
-    case ($method = 'GET' && preg_match('/\/Projet2RichRicasso\/api\/users\/[1-9]+/', $uri)):
+  case ($method = 'GET' && preg_match('/\/Projet2RichRicasso\/api\/users\/[1-9]+/', $uri)):
     $uriParts = explode('/', $uri);
     $id = end($uriParts);
 
@@ -57,13 +58,36 @@ switch ($method | $uri) {
     $id = end($uriParts);
     $produits = $produitController->getProduitById($id);
     echo json_encode($produits);
-    break; 
+    break;
   //produit taille ne fonctionne pas
-  case ($method = 'GET' && $uri == '/Projet2RichRicasso/api/produits/44'):
-    $uriParts = explode('/', $uri);
-    $taille = end($uriParts);
+  case ($method = 'GET' && preg_match('/\/Projet2RichRicasso\/api\/produits\/unique/', $uri)):
+
+    $produits = $produitController->getProduitByTaille('1');
+
+    echo json_encode($produits);
+    break;
+  case ($method = 'GET' && preg_match('/\/Projet2RichRicasso\/api\/produits\/44/', $uri)):
+
     $produits = $produitController->getProduitByTaille('44');
-    header("Content-Type: application/json");
+
+    echo json_encode($produits);
+    break;
+  case ($method = 'GET' && preg_match('/\/Projet2RichRicasso\/api\/produits\/48/', $uri)):
+
+    $produits = $produitController->getProduitByTaille('48');
+
+    echo json_encode($produits);
+    break;
+  case ($method = 'GET' && preg_match('/\/Projet2RichRicasso\/api\/produits\/54/', $uri)):
+
+    $produits = $produitController->getProduitByTaille('54');
+
+    echo json_encode($produits);
+    break;
+  case ($method = 'GET' && preg_match('/\/Projet2RichRicasso\/api\/produits\/56/', $uri)):
+
+    $produits = $produitController->getProduitByTaille('56');
+
     echo json_encode($produits);
     break;
   // produit type
@@ -80,24 +104,29 @@ switch ($method | $uri) {
     $produits = $produitController->getProduitSortByPrixASC();
     echo json_encode($produits);
     break;
-    case ($method = 'GET' && $uri == '/Projet2RichRicasso/api/produits/desc'):
-      $produits = $produitController->getProduitSortByPrixDESC();
-      echo json_encode($produits);
-      break;
+  case ($method = 'GET' && $uri == '/Projet2RichRicasso/api/produits/desc'):
+    $produits = $produitController->getProduitSortByPrixDESC();
+    echo json_encode($produits);
+    break;
 
   // produit couleur
   case ($method = 'GET' && preg_match('/\/Projet2RichRicasso\/api\/produits\/rose/', $uri)):
     $produits = $produitController->getProduitByCouleur('Rose');
     echo json_encode($produits);
     break;
-    case ($method = 'GET' && preg_match('/\/Projet2RichRicasso\/api\/produits\/violet/', $uri)):
-      $produits = $produitController->getProduitByCouleur('Violet');
-      echo json_encode($produits);
-      break;
-      case ($method = 'GET' && preg_match('/\/Projet2RichRicasso\/api\/produits\/vert/', $uri)):
-        $produits = $produitController->getProduitByCouleur('Vert');
-        echo json_encode($produits);
-        break;
+  case ($method = 'GET' && preg_match('/\/Projet2RichRicasso\/api\/produits\/violet/', $uri)):
+    $produits = $produitController->getProduitByCouleur('Violet');
+    echo json_encode($produits);
+    break;
+  case ($method = 'GET' && preg_match('/\/Projet2RichRicasso\/api\/produits\/vert/', $uri)):
+    $produits = $produitController->getProduitByCouleur('Vert');
+    echo json_encode($produits);
+    break;
+  case ($method = 'GET' && preg_match('/\/Projet2RichRicasso\/api\/produits\//', $uri)):
+    $produits = $produitController->getProduitByCouleur('Blanc');
+    echo json_encode($produits);
+    break;
+
 
 
 

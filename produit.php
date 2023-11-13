@@ -2,15 +2,16 @@
 $uri = $_SERVER['REQUEST_URI'];
 $method = $_SERVER['REQUEST_METHOD'];
 
-function isAuthenticated() {
+function isAuthenticated()
+{
     session_start();
-    return isset($_SESSION['authentifie']);// doit être
-  }
-  
-  if (!isAuthenticated()) {
+    return isset($_SESSION['authentifie']); // doit être
+}
+
+if (!isAuthenticated()) {
     header('Location: connexion.php');
     exit();
-  }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,7 +28,7 @@ function isAuthenticated() {
 </head>
 
 <body>
-<!--
+    <!--
     <div class="preloader">
         <video muted autoplay loop>
             <source src="./video/FREE Vaporwave Background V2 (5 Minutes).mp4" type="">
@@ -51,123 +52,50 @@ function isAuthenticated() {
             <img src="./img/user2.png" alt="user" class="user-icon nav-li">
         </nav>
         <header>
-        <?php require "./userParametreTemplate.php" ?>
+            <?php require "./userParametreTemplate.php" ?>
         </header>
         <main>
             <div class="produit-container">
-                <div class="categories">
-                    <li>Tous(3)</li>
-                    <li>Cravatte(1)</li>
-                    <li>Chemise(1)</li>
-                </div>
                 <div class="affichage-produit">
-                    
+                    <div class=column></div>
+
                 </div>
+                <div class="categories">
+                    <li class="categorie">Tous</li>
+                    <li class="categorie">Cravatte</li>
+                    <li class="categorie">Chemise</li>
+
+                    <div>
+                    <label for="couleur-select">Par Couleur</label>
+                    <select name="couleurs" id="couleur-select">
+                        <option value="">--Choisir une option--</option>
+                        <option value="blanc">Blanc</option>
+                        <option value="violet">Violet</option>
+                        <option value="rose">Rose</option>
+                        <option value="vert">Vert</option>
+                        
+                    </select>
+                    </div>
+
+                    <div>
+                    <label for="tailles-select">Par Taille</label>
+                    <select name="tailles" id="tailles-select">
+                        <option value="">--Choisir une option--</option>
+                        <option value="unique">Unique</option>
+                        <option value="44">44</option>
+                        <option value="48">48</option>
+                        <option value="54">54</option>
+                        <option value="56">56 </option>
+                        
+                    </select>
+                    </div>
+                </div>
+
+
 
                 <script>
-                    const affichageProduit = document.querySelector('.affichage-produit');
-                    const url = '/Projet2RichRicasso/api/produits';
-                    console.log(url)
 
-
-                    fetch(url)
-                        .then(response => response.json())
-                        .then(data => {
-                            count = 0
-                            column1 = document.createElement('div')
-                            column2 = document.createElement('div')
-                            column3 = document.createElement('div')
-
-                            column1.classList.add("column")
-                            column2.classList.add("column")
-                            column3.classList.add("column")
-
-                            data.forEach(element => {
-                                if (count < 3){
-                                cardProduit =document.createElement('div')
-                                cardProduit.classList.add('card-produit')
-                                
-                                imgProduit=document.createElement('img')
-                                imgProduit.src = `${element.image}`
-                                imgProduit.classList.add("piece-img")
-
-                                titleProduit=document.createElement('h2')
-                                titleProduit.innerHTML = `${element.type}`
-
-                                couleurDispo=document.createElement('h3')
-                                couleurDispo.innerHTML = `${element.couleur}`
-
-                                prixProduit=document.createElement('h4')
-                                prixProduit.innerHTML = `${element.prix}`
-
-                                cardProduit.appendChild(imgProduit)
-                                cardProduit.appendChild(titleProduit)
-                                cardProduit.appendChild(couleurDispo)
-                                cardProduit.appendChild(prixProduit)
-                                column1.appendChild(cardProduit)
-
-                                count++
-                                }
-                                if (count >=3  && count < 6){
-                                cardProduit =document.createElement('div')
-                                cardProduit.classList.add('card-produit')
-                                
-                                imgProduit=document.createElement('img')
-                                imgProduit.src = `${element.image}`
-                                imgProduit.classList.add("piece-img")
-
-                                titleProduit=document.createElement('h2')
-                                titleProduit.innerHTML = `${element.type}`
-
-                                couleurDispo=document.createElement('h3')
-                                couleurDispo.innerHTML = `${element.couleur}`
-
-                                prixProduit=document.createElement('h4')
-                                prixProduit.innerHTML = `${element.prix}`
-
-                                cardProduit.appendChild(imgProduit)
-                                cardProduit.appendChild(titleProduit)
-                                cardProduit.appendChild(couleurDispo)
-                                cardProduit.appendChild(prixProduit)
-                                column2.appendChild(cardProduit)
-                                
-                                count++
-                                }
-                                if (count >=6  && count < 9){
-                                cardProduit =document.createElement('div')
-                                cardProduit.classList.add('card-produit')
-                                
-                                imgProduit=document.createElement('img')
-                                imgProduit.src = `${element.image}`
-                                imgProduit.classList.add("piece-img")
-
-                                titleProduit=document.createElement('h2')
-                                titleProduit.innerHTML = `${element.type}`
-
-                                couleurDispo=document.createElement('h3')
-                                couleurDispo.innerHTML = `${element.couleur}`
-
-                                prixProduit=document.createElement('h4')
-                                prixProduit.innerHTML = `${element.prix}`
-
-                                cardProduit.appendChild(imgProduit)
-                                cardProduit.appendChild(titleProduit)
-                                cardProduit.appendChild(couleurDispo)
-                                cardProduit.appendChild(prixProduit)
-                                column3.appendChild(cardProduit)
-                                
-                                count++
-                                }
-                                
-                                
-                            });
-                            affichageProduit.appendChild(column1)
-                            affichageProduit.appendChild(column2)
-                            affichageProduit.appendChild(column3)
-                        })
-                        .catch(error => console.log(error))
                 </script>
-
             </div>
 
         </main>
@@ -176,6 +104,7 @@ function isAuthenticated() {
 </body>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12/dist/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script src="./script/produitManager.js"></script>
 <script src="main.js"></script>
 <script>
     /*
@@ -205,5 +134,6 @@ function isAuthenticated() {
   */
 
 </script>
+
 
 </html>

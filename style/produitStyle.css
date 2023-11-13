@@ -15,12 +15,14 @@ main{
     min-height:80vh;
     width:100vw;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
+   
     background-color: rgba(252, 252, 255, 0.4);
     backdrop-filter: blur(15px);
     position: relative;
     top:10vh;
+    left:5%
 
 }
 .categories{
@@ -28,21 +30,34 @@ main{
     flex-direction: column;
     justify-content: space-evenly;
     height: 60vh;
-    position: relative;
-    bottom:40vh;
+    position: fixed;
+    left: 75%;
+    top :5%;
+
 }
 .categories>li{
     font-size: 2em;
     list-style-type: none;
     gap: 10%;
+    cursor: pointer;
+}
+.affichage-produit
+{
+    width: 70%;
 }
 .column{
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
 
-    gap:3%
+    width: 100%;
+    gap:5%
 }
 .piece-img{
     height:20vw;
     width:20vw;
+}
+
+.isSelected{
+    color: blue;
 }
