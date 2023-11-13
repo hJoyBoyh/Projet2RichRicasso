@@ -1,26 +1,25 @@
 let affichageProduit = document.querySelector('.affichage-produit');
 let column1 = document.querySelector('.column')
-
-let categorie = document.querySelectorAll(".categorie")
-//tous
+let categorie = document.querySelectorAll(".categorie");
 
 
 
-//start avec le tous
+//Commencer avec tous les produits afficher
 let allProduit = '/Projet2RichRicasso/api/produits';
-
 categorie[0].classList.add("isSelected")
 getProduit(allProduit)
 
 
 
 // selection
+//tous
 categorie[0].addEventListener("click", () => {
     removeAllIsSelected()
     categorie[0].classList.add("isSelected")
     let allProduit = '/Projet2RichRicasso/api/produits';
     getProduit(allProduit)
 })
+//cravattes
 categorie[1].addEventListener("click", () => {
     removeAllIsSelected()
     categorie[1].classList.add("isSelected")
@@ -28,18 +27,21 @@ categorie[1].addEventListener("click", () => {
     let allCravates = '/Projet2RichRicasso/api/produits/cravates';
     getProduit(allCravates)
 })
+//chemises
 categorie[2].addEventListener("click", () => {
     removeAllIsSelected()
     categorie[2].classList.add("isSelected")
     let allProduit = '/Projet2RichRicasso/api/produits/chemises';
     getProduit(allProduit)
 })
+// prix ASC
 categorie[3].addEventListener("click", () => {
     removeAllIsSelected()
     categorie[3].classList.add("isSelected")
     let allProduit = '/Projet2RichRicasso/api/produits/asc';
     getProduit(allProduit)
 })
+//prix DESC
 categorie[4].addEventListener("click", () => {
     removeAllIsSelected()
     categorie[4].classList.add("isSelected")
@@ -69,11 +71,6 @@ function getProduitId(url) {
         .then(response => response.json())
         .then(data => {
             console.log(data)
-
-
-
-
-            
 
                 cardProduit = document.createElement('div')
                 cardProduit.classList.add('card-produit')
@@ -177,13 +174,13 @@ function getProduit(url) {
             }
             )
             
+            // selection de une card 
             let allCardProduit = document.querySelectorAll(".card-produit")
 
             if(allCardProduit != null){
 
                 allCardProduit.forEach(element => {
                     element.addEventListener("click",()=>{
-                      // console.log(element.querySelector("h1").innerHTML)
                       produitInfo = `/Projet2RichRicasso/api/produits/${element.querySelector("h1").innerHTML}`
                      getProduitId(produitInfo)
 
@@ -191,7 +188,7 @@ function getProduit(url) {
                 });
             }
             
-            
+            // append  pour l afficher
             affichageProduit.appendChild(column1)
         })
 
