@@ -1,6 +1,37 @@
 <?php
-$userImg = "img/user2.png";
+
+
 session_start();
+
+require_once("controllers/InfolettreController.php");
+require_once("manager/dbManager.php");
+
+
+$dbManager = DBManager::getInstance();
+$controller = new InfolettreController($dbManager->getDBConnection());
+
+
+
+if($_SERVER['REQUEST_METHOD'] === 'POST'){
+    
+    if(isset($_POST['email'])){
+        
+        $email = $_POST['email'];
+        
+        $data = [
+            
+            "courriel" => $email,
+            
+        ];
+       
+
+        $controller->addEmail($data);
+
+
+
+}
+}
+
   
  
     ?>
@@ -14,16 +45,20 @@ session_start();
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js@latest/pace-theme-default.min.css">
     <link rel="stylesheet" href="./style/loading.css">
     <link rel="stylesheet" href="./style/accueilStyle.css">
+    <link rel="stylesheet" href="./style/navStyle.css">
     <title>Accueil</title>
 </head>
 
 <body>
-    
+    <!--
     <div class="preloader">
+        
         <video muted autoplay loop>
             <source src="video/FREE Vaporwave Background V2 (5 Minutes).mp4" type="">
         </video>
+
     </div>
+    -->
     
     
     <div class="first">
@@ -62,42 +97,12 @@ session_start();
                 <div class="hero-info">
                     <div class="caroussel-content">
                     <div class="gallery">
-                    <?php
-                    
-                    $url = '/Projet2RichRicasso/api/produits'
-                    ?>
+                   
 
                     </div>
 
                         <script>
-                            const gallery = document.querySelector('.gallery');
-                            const url = '/Projet2RichRicasso/api/produits';
-                            console.log(url)
-                            fetch(url)
-                                .then(response => response.json())
-                                .then(data => {
-                                   
-                                    img1 = document.createElement('img')
-                                    img1.src = `${data[2].image}`
-                                    img2 = document.createElement('img')
-                                    img2.src = `${data[5].image}`
-                                    img3 = document.createElement('img')
-                                    img3.src = `${data[6].image}`
-                                    img4 = document.createElement('img')
-                                    img4.src = `${data[7].image}`
-                                    img5 = document.createElement('img')
-                                    img5.src = `${data[1].image}`
-                                    img6 = document.createElement('img')
-                                    img6.src = `${data[8].image}`
-
-                                    gallery.appendChild(img1)
-                                    gallery.appendChild(img2)
-                                    gallery.appendChild(img3)
-                                    gallery.appendChild(img4)
-                                    gallery.appendChild(img5)
-                                    gallery.appendChild(img6)
-                                })
-                                .catch(error => console.log(error))
+                            
                         </script>
                        
                     </div>
@@ -106,7 +111,7 @@ session_start();
                         <h2 class="info-h2">Au sommet du luxe</h2>
                         <div class="btn-voir-plus">
                             <div>
-                                <span> voir plus</span>
+                                <span><a href="produit.php"> voir plus</a> </span>
                                <!-- <div class="fleche"></div>-->
                             </div>
                             
@@ -131,7 +136,7 @@ session_start();
                         <img src="./img/Rich_Ricasso.png" alt="" class="rich-img">
                     </div>
                     <div class="rich-text">
-                        <h3 style="font-size:3em">Rich Ricasso</h3>
+                        <h3>Rich Ricasso</h3>
                         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum odio rerum, tempore
                             obcaecati, deleniti architecto quidem laudantium hic cum quis sed inventore fugiat possimus,
                             quas pariatur asperiores eius! Repellendus, ullam.
@@ -205,12 +210,13 @@ session_start();
                 </div>
                 <div class="infolettre">
                     <div>
-                        <h2>Restez a l affut des toutes nouvelles sorties!!</h2>
+                        <h2>Infolettre!!</h2>
                     </div>
                     <div>
-                        <form action="">
+                        <form action="" method="post">
                             <label for="email">Email</label>
                             <input type="email" name="email" id="email">
+                            <input type="submit" value="s'abonner" class="button-1">
                         </form>
                     </div>
 
@@ -231,23 +237,6 @@ session_start();
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 <script src="main.js"></script>
 <script src="./script/caroussel.js"></script>
+<script src ="./script/gallery.js"></script>
 
 </html>
-<script>
-    /*
-  const container = document.getElementById('container');
-  const url = '/Projet2RichRicasso/api/users';
-  console.log(url)
-  fetch(url)
-  .then(response => response.json())
-  .then(data => {
-  console.log(data)
-  nom = document.createElement('p')
-  nom.innerHTML= `${data[0].nom}`
-  container.appendChild(nom)
-  })
-  .catch(error => console.log(error))
-
-*/
-
-</script>

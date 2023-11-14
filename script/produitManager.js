@@ -23,7 +23,6 @@ categorie[0].addEventListener("click", () => {
 categorie[1].addEventListener("click", () => {
     removeAllIsSelected()
     categorie[1].classList.add("isSelected")
-
     let allCravates = '/Projet2RichRicasso/api/produits/cravates';
     getProduit(allCravates)
 })
@@ -31,30 +30,31 @@ categorie[1].addEventListener("click", () => {
 categorie[2].addEventListener("click", () => {
     removeAllIsSelected()
     categorie[2].classList.add("isSelected")
-    let allProduit = '/Projet2RichRicasso/api/produits/chemises';
-    getProduit(allProduit)
+    let allChemises = '/Projet2RichRicasso/api/produits/chemises';
+    getProduit(allChemises)
 })
+
 // prix ASC
 categorie[3].addEventListener("click", () => {
     removeAllIsSelected()
     categorie[3].classList.add("isSelected")
-    let allProduit = '/Projet2RichRicasso/api/produits/asc';
-    getProduit(allProduit)
+    let allProduitASC = '/Projet2RichRicasso/api/produits/asc';
+    getProduit(allProduitASC)
 })
 //prix DESC
 categorie[4].addEventListener("click", () => {
     removeAllIsSelected()
     categorie[4].classList.add("isSelected")
-    let allProduit = '/Projet2RichRicasso/api/produits/desc';
-    getProduit(allProduit)
+    let allProduitDESC = '/Projet2RichRicasso/api/produits/desc';
+    getProduit(allProduitDESC)
 })
 
 //  par couleur
-var e = document.getElementById("couleur-select");
+var couleurs= document.getElementById("couleur-select");
 var tailles = document.getElementById("tailles-select");
 
 
-e.onchange = onChange;
+couleurs.onchange = onChange;
 tailles.onchange = onChange2;
 onChange();
 onChange2();
@@ -88,16 +88,19 @@ function getProduitId(url) {
                 imgProduit.classList.add("piece-img")
 
                 titleProduit = document.createElement('h2')
-                titleProduit.innerHTML = `${data.type}`
+                titleProduit.innerHTML = `Type de produit : ${data.type}`
 
                 couleurDispo = document.createElement('h3')
-                couleurDispo.innerHTML = `${data.couleur}`
+                couleurDispo.innerHTML = `Couleur disponible : ${data.couleur}`
 
                 prixProduit = document.createElement('h4')
-                prixProduit.innerHTML = `${data.prix}$`
+                prixProduit.innerHTML = `Prix : ${data.prix}$`
+
+                tailleProduit = document.createElement('h4')
+                tailleProduit.innerHTML = `Taille : ${data.taille}`
 
                 descriptionProduit = document.createElement('p')
-                descriptionProduit.innerHTML = `${data.description}`
+                descriptionProduit.innerHTML = `Description : ${data.description}`
 
 
                 cardProduit.appendChild(titre)
@@ -106,6 +109,7 @@ function getProduitId(url) {
                 cardProduit.appendChild(titleProduit)
                 cardProduit.appendChild(couleurDispo)
                 cardProduit.appendChild(prixProduit)
+                cardProduit.appendChild(tailleProduit)
                 cardProduit.appendChild(descriptionProduit)
               
 
@@ -197,7 +201,7 @@ function getProduit(url) {
 
 
 function onChange() {
-    var value = e.value;
+    var value = couleurs.value;
     if (value != ""){
     allProduitParCouleur = `/Projet2RichRicasso/api/produits/${value}`
     console.log(allProduitParCouleur)
@@ -211,7 +215,6 @@ function onChange2() {
     var value = tailles.value;
     if (value != ""){
     allProduitParTaille = `/Projet2RichRicasso/api/produits/${value}`
-
     getProduit(allProduitParTaille)
     removeAllIsSelected()
     }

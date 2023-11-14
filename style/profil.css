@@ -3,6 +3,7 @@ body,html{
     padding: 0;
     height: 100vh;
     width: 100vw;
+    background-color: blueviolet;
 }
 
 nav{
@@ -29,14 +30,14 @@ nav{
 #parametre{
     height: 80%;
     width: 80%;
-    border: 2px solid #0067A4;
+    border: 2px solid #a40000;
     display: flex;
 
 }
 .user-general{
     height: 100%;
     width: 25%;
-    border-right: 2px solid #0067A4;
+    border-right: 2px solid #a40000;;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -48,7 +49,7 @@ nav{
     justify-content: center;
     align-items: center;
     margin-top: 5%;
-    border-bottom:2px solid #0067A4 ;
+    border-bottom:2px solid #a40000 ;
 }
 #user-choix{
     
@@ -56,6 +57,7 @@ nav{
     flex-direction: column;
     justify-content: start;
     align-items: center;
+    height: 50%;
    margin-top: 20%;
     gap :15%;
     padding: 0;
@@ -77,6 +79,8 @@ nav{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
+    gap:5%;
     height: 100%;
     width: 100%;
 }

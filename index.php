@@ -5,11 +5,6 @@ require_once('controllers/ProduitController.php');
 require_once(dirname(__FILE__) . "/manager/dbManager.php");
 
 
-function isAuthenticated()
-{
-  session_start();
-  return isset($_SESSION['authentifie']); // doit être
-}
 
 
 
@@ -59,7 +54,7 @@ switch ($method | $uri) {
     $produits = $produitController->getProduitById($id);
     echo json_encode($produits);
     break;
-  //produit taille ne fonctionne pas
+  //produit taille 
   case ($method = 'GET' && preg_match('/\/Projet2RichRicasso\/api\/produits\/unique/', $uri)):
 
     $produits = $produitController->getProduitByTaille('1');
@@ -135,19 +130,5 @@ switch ($method | $uri) {
 }
 
 
-/*
-if (preg_match('/motif/', $chaine)) {
-    echo 'Le motif a été trouvé dans la chaîne.';
-  } else {
-    echo 'Le motif n’a pas été trouvé dans la chaîne.';
-  }
-  */
 
-
-
-//if (isset($_SESSION["authentifie"]) && $_SESSION['authentifie'] === true) {
-//echo json_encode(["success" => true, "message" => "authentifié"]);
-
-// exit;
-//}
 ?>

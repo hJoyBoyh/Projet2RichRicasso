@@ -18,9 +18,17 @@ let main = document.querySelector("main")
 // nav user function
 let enableUserPanel = ()=>{
     userParametre.style.display = "flex"
+    
+     // stop scroll
+    document.querySelector("html").classList.add('stop-scrolling')
+    document.querySelector("body").classList.add('stop-scrolling')
+    
 }
 let disableUserPanel = ()=>{
     userParametre.style.display = "none"
+    // stop scroll
+    document.querySelector("html").classList.remove('stop-scrolling')
+    document.querySelector("body").classList.remove('stop-scrolling')
 }
 
 user.addEventListener("click",()=>{
@@ -52,6 +60,7 @@ firstH1.style.opacity =1
     tl.to(preloader,{
         duration:2,
         opacity:0,
+       
 
     })
     tl.from(firstH1,{
@@ -152,6 +161,15 @@ let produitAnimation = ()=>{
     tl.to(preloader,{
         duration:2,
         opacity:0,
+      
+
+    })
+    tl.to(preloader,{
+        duration:0.5,
+        
+        func :()=>{
+            preloader.style.display = "none"
+        }
 
     })
 }

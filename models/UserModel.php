@@ -26,8 +26,8 @@ class UserModel{
         }
         public function updateUser($id, $data) {
         $stmt = $this->pdo->prepare("UPDATE user SET nom = ?,
-      courriel = ? WHERE id = ?");
-        return $stmt->execute([$data['nom'], $data['courriel'], $id]);
+      courriel = ?, mdp = ? WHERE id = ?");
+        return $stmt->execute([$data['nom'], $data['courriel'],$data['mdp'], $id]);
         }
         public function deleteUser($id) {
         $stmt = $this->pdo->prepare("DELETE FROM user WHERE id = ?");

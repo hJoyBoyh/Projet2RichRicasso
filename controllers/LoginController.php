@@ -9,37 +9,20 @@ class LoginController
         $this->model = new UserModel($pdo);
     }
 
-    private function getUserByEmail($email)
-    {
-        return $this->model->getUserByEmail($email);
-    }
 
     private function verifyUser($email, $password)
     {
         $user = $this->model->getUserByEmail($email);
         if ($user) {
-            //echo "user exist";
-           // print_r($user['mdp']);
-            
-            //
-             
-            if (password_verify($password, $user['mdp'])) {
-                echo "true";
-                $_SESSION['user'] = $user;
-               // print_r($_SESSION['user']);
-                return true;
-
-            }
-            
             // au cas ou mes user que jutilise ne son pas hash
-            if ($password === $user['mdp']) {
-              $_SESSION['user'] = $user;
-                //print_r($_SESSION['user']);
+            if (password_verify($password, $user['mdp']) || $password === $user['mdp']) {
+                $_SESSION['user'] = $user;
                 return true;
             }
 
            echo "mot de passe incorrect";
-            return false;
+
+           return false;
         }
         else{
             echo "Le courriel est n'existe pas";
@@ -50,20 +33,15 @@ class LoginController
     {
         if ($this->verifyUser($email, $password)) {
             $user = $this->model->getUserByEmail($email);
-            //session_start();
             if ($user['permission'] === 1) {
-                $_SESSION['admin']['isAuth'] = true;
-                $_SESSION['permission'] = true;
-            } //else if ($user['permission'] === 0) {
-                //$_SESSION['admin']['isAuth'] = false;
-            //}
+                $_SESSION['admin'] = true;
+            }
         }
     }
     public function login($email, $password)
     {
         if ($this->verifyUser($email, $password)) {
             $_SESSION['authentifie'] = true;
-
             $this->grantAdminAccess($email, $password);
         }
     }

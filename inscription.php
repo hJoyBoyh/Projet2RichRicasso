@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
     $nom = $_POST['nom'];
     $email = $_POST['courriel'];
     $password = $_POST['mdp'];
-    //$role = $_POST['role'];
+    
 
     $data = [
         "nom" => $nom,

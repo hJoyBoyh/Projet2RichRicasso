@@ -12,7 +12,7 @@ main{
 }
 .produit-container{
     height:auto;
-    min-height:80vh;
+    min-height:100vh;
     width:100vw;
     display: flex;
     justify-content: space-between;
@@ -23,7 +23,7 @@ main{
     position: relative;
     top:10vh;
     
-    z-index: 1000;
+    z-index: 100;
 
 }
 .categories{
@@ -61,4 +61,29 @@ main{
 
 .isSelected{
     color: blue;
+}
+@media only screen and (max-width: 750px){
+    .produit-container{
+       
+        flex-direction: column-reverse;
+        justify-content: space-around;
+        align-items: center;
+       
+    
+    }
+    .categories{
+      
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100vw;
+        height: 30vh;
+        position: relative;
+        left: 0;
+        top :0;
+    
+    }
+    .categories>li{
+        font-size: 1em;
+      
+    }
 }

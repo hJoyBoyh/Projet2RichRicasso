@@ -55,6 +55,7 @@ if (!isAuthenticated()) {
         </header>
         <main>
             <div class="produit-container">
+                
                 <div class="affichage-produit">
                     <div class=column></div>
 
@@ -92,12 +93,6 @@ if (!isAuthenticated()) {
                     </select>
                     </div>
                 </div>
-
-
-
-                <script>
-
-                </script>
             </div>
 
         </main>
@@ -108,34 +103,4 @@ if (!isAuthenticated()) {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 <script src="./script/produitManager.js"></script>
 <script src="main.js"></script>
-<script>
-    /*
-    const container = document.getElementById('container');
-  const url = '/Projet2RichRicasso/api/produits/rose';
-  console.log(url)
-  fetch(url)
-  .then(response => response.json())
-  .then(data => {
-  console.log(data)
-  
-  data.forEach(element => {
-    produit = document.createElement('img')
-  produit.src= `${element.image}`
-  container.appendChild(produit)
-  });
- 
-  
-  produit = document.createElement('img')
-  produit.src= `${data.image}`
-  container.appendChild(produit)
-  
-
-
-})
-  .catch(error => console.log(error))
-  */
-
-</script>
-
-
 </html>
