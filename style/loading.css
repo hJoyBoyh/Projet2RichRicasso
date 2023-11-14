@@ -61,4 +61,13 @@
     padding: 0;
    
 }
+@media only screen and (max-width: 750px){
+	.pace .pace-progress {
+		position: fixed;
+		z-index: 2000;
+		top: 40%;
+		right: 0;
+	}
+}
+
 

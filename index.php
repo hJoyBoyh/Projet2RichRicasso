@@ -42,7 +42,6 @@ switch ($method | $uri) {
 
     break;
   // produit api-------------------------------------------------------
-
   case ($method = 'GET' && $uri == '/Projet2RichRicasso/api/produits'):
     $produits = $produitController->getAllProduit();
     echo json_encode($produits);

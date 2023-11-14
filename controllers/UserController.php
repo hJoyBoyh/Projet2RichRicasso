@@ -19,7 +19,7 @@ class UserController
     }
     public function createUser($data)
     {
-        // Hasher le mot de passe avant de l'envoyer au modèle
+    // Hasher le mot de passe avant de l'envoyer au modèle
         $data['mdp'] = password_hash(
             $data['mdp'],
             PASSWORD_DEFAULT

@@ -11,7 +11,8 @@ getProduit(allProduit)
 
 
 
-// selection
+// tri
+
 //tous
 categorie[0].addEventListener("click", () => {
     removeAllIsSelected()
@@ -54,10 +55,12 @@ var couleurs= document.getElementById("couleur-select");
 var tailles = document.getElementById("tailles-select");
 
 
-couleurs.onchange = onChange;
-tailles.onchange = onChange2;
-onChange();
-onChange2();
+couleurs.onchange = afficherProduitParCouleurs;
+tailles.onchange = afficherProduitParTailles;
+afficherProduitParCouleurs();
+afficherProduitParTailles();
+
+// fonctions--------------------------------
 
 function removeAllIsSelected() {
     categorie.forEach(element => {
@@ -178,7 +181,7 @@ function getProduit(url) {
             }
             )
             
-            // selection de une card 
+            // selection d une card 
             let allCardProduit = document.querySelectorAll(".card-produit")
 
             if(allCardProduit != null){
@@ -200,7 +203,7 @@ function getProduit(url) {
 }
 
 
-function onChange() {
+function afficherProduitParCouleurs() {
     var value = couleurs.value;
     if (value != ""){
     allProduitParCouleur = `/Projet2RichRicasso/api/produits/${value}`
@@ -211,7 +214,7 @@ function onChange() {
     
 }
 
-function onChange2() {
+function afficherProduitParTailles() {
     var value = tailles.value;
     if (value != ""){
     allProduitParTaille = `/Projet2RichRicasso/api/produits/${value}`

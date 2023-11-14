@@ -12,29 +12,17 @@ $controller = new InfolettreController($dbManager->getDBConnection());
 
 
 
-if($_SERVER['REQUEST_METHOD'] === 'POST'){
-    
-    if(isset($_POST['email'])){
-        
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    if (isset($_POST['email'])) {
         $email = $_POST['email'];
-        
         $data = [
-            
             "courriel" => $email,
-            
         ];
-       
-
         $controller->addEmail($data);
-
-
-
+    }
 }
-}
-
-  
- 
-    ?>
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -51,16 +39,17 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
 <body>
     <!--
+
     <div class="preloader">
-        
+
         <video muted autoplay loop>
             <source src="video/FREE Vaporwave Background V2 (5 Minutes).mp4" type="">
         </video>
 
     </div>
-    -->
-    
-    
+
+-->
+
     <div class="first">
         <div>
             <h1 class="h1-first">Rich Ricasso Collections</h1>
@@ -81,30 +70,29 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     </div>
     <div id="content">
         <!--background-->
-
+<!--
         <video muted autoplay loop>
             <source src="video/Moving Gradient Background.mp4" type="">
         </video>
+-->
 
 
         <?php require "./navTemplate.php" ?>
 
 
         <header>
-        <?php require "./userParametreTemplate.php" ?>
+            <?php require "./userParametreTemplate.php" ?>
             <div class="hero-section">
 
                 <div class="hero-info">
                     <div class="caroussel-content">
-                    <div class="gallery">
-                   
-
-                    </div>
+                        <div class="gallery">
+                        </div>
 
                         <script>
-                            
+
                         </script>
-                       
+
                     </div>
                     <div class="info">
                         <h1 class="info-h1">Rich Ricasso Collections</h1>
@@ -112,9 +100,9 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
                         <div class="btn-voir-plus">
                             <div>
                                 <span><a href="produit.php"> voir plus</a> </span>
-                               <!-- <div class="fleche"></div>-->
+
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>
@@ -180,34 +168,20 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
             <!-- fetch avec le api-->
             <div class="piece-phare">
                 <div class="piece-column">
-                    <div class="card-piece">
-                        <img src="./img/cravate1.png" alt="" class="piece-img">
-                        <h2>Chemise-1</h2>
-                        <h3>95$</h3>
-                    </div>
+                 
+                  
                 </div>
+
                 <div class="piece-column-2">
-                    <div class="card-piece">
-                        <img src="./img/cravate2.png" alt="" class="piece-img">
-                        <h2>Chemise-2</h2>
-                        <h3>50$</h3>
-                    </div>
-                    <div class="btn">
-                        <h3>voir plus</h3>
-                    </div>
-                    <div class="card-piece">
-                        <img src="./img/cravate3.png" alt="" class="piece-img">
-                        <h2>Cravatte-2</h2>
-                        <h3>90$</h3>
-                    </div>
+                
+                    
                 </div>
+
                 <div class="piece-column">
-                    <div class="card-piece">
-                        <img src="./img/cravate4.png" alt="" class="piece-img">
-                        <h2>Cravatte-2</h2>
-                        <h3>15$</h3>
-                    </div>
+                    
                 </div>
+
+
                 <div class="infolettre">
                     <div>
                         <h2>Infolettre!!</h2>
@@ -237,6 +211,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 <script src="main.js"></script>
 <script src="./script/caroussel.js"></script>
-<script src ="./script/gallery.js"></script>
+<script src="./script/gallery.js"></script>
+<script src ="./script/piecePhare.js"></script>
 
 </html>

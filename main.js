@@ -18,7 +18,6 @@ let main = document.querySelector("main")
 // nav user function
 let enableUserPanel = ()=>{
     userParametre.style.display = "flex"
-    
      // stop scroll
     document.querySelector("html").classList.add('stop-scrolling')
     document.querySelector("body").classList.add('stop-scrolling')
@@ -148,7 +147,7 @@ acceuilAnimation.add("start")
         trigger:first,
         start:"76% 75.99%",
         end :"100% 94%",
-        markers:true,
+        markers:{startColor: "rgba(0, 0, 0, 0)", endColor: "rgba(0, 0, 0, 0)", fontSize: "18px", fontWeight: "bold", indent: 20},
         animation:acceuilAnimation
     })
 

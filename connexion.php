@@ -1,8 +1,5 @@
 <?php
-
 session_start();
-//session_unset();
-//session_destroy();
 
 require_once("controllers/LoginController.php");
 require_once("manager/dbManager.php");
@@ -10,7 +7,6 @@ require_once("manager/dbManager.php");
 
 $dbManager = DBManager::getInstance();
 $controller = new LoginController($dbManager->getDBConnection());
-
 
 
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
@@ -21,8 +17,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         $password = $_POST['mdp'];
 
         $controller->login($email, $password);
-
-
 }
 }
 

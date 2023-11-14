@@ -1,10 +1,8 @@
 <?php
-$uri = $_SERVER['REQUEST_URI'];
-$method = $_SERVER['REQUEST_METHOD'];
-
+session_start();
 function isAuthenticated()
 {
-    session_start();
+    
     return isset($_SESSION['authentifie']); // doit être
 }
 
@@ -55,7 +53,7 @@ if (!isAuthenticated()) {
         </header>
         <main>
             <div class="produit-container">
-                
+
                 <div class="affichage-produit">
                     <div class=column></div>
 

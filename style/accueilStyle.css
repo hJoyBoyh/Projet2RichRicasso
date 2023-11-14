@@ -365,5 +365,28 @@ footer>p{
         height: 200px;
         width: 300px;
     }
-   
+    .btn{
+        height: 100px;
+        width: 100px;
+        background-color:rgb(0, 0, 255, 0.5);
+        backdrop-filter: blur(15px);
+        display: flex;
+        justify-content:center;
+        align-items: center;
+        border-radius: 50%;
+    }
+   .btn>h3{
+    text-align: center;
+   }
+
+   label {
+    font-size: 2em;
+}
+input {
+    width: 80%;
+}
+.infolettre>div>h2 {
+    font-size: 2em;
+}
+
 }

@@ -1,4 +1,4 @@
-const gallery = document.querySelector('.gallery');
+let gallery = document.querySelector('.gallery');
 const url = '/Projet2RichRicasso/api/produits';
 console.log(url)
 fetch(url)
